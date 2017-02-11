@@ -58,12 +58,28 @@ losses++;
  $("#loss span").text(losses);
   reset();
   }
-    
-
+ 
 }
 
 
+function animationHover(element, animation){
+    element = $(element);
+    element.hover(
+        function() {
+            element.addClass('animated ' + animation);        
+        },
+        function(){
+            //wait for animation to finish before removing classes
+            window.setTimeout( function(){
+                element.removeClass('animated ' + animation);
+            }, 2000);         
+        });
+}
 
+animationHover('#c1', 'pulse');
+animationHover('#c2', 'pulse');
+animationHover('#c3', 'pulse');
+animationHover('#c4', 'pulse');
 
     $('#c1').on('click',function(){
       num = num + c1Guess;
@@ -91,7 +107,6 @@ losses++;
           comparevalues();
        
     });
-
 
  
 
